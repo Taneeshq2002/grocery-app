@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <div class="form-card">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Customer Registration</h2>
+        
+        <!-- Registration Form (US_UI_001) -->
+        <!-- Note: The form action is set to '#' and the onsubmit handler is commented out, 
+             making this form static until you integrate JS logic. -->
+        <form id="myForm" action="" method="" >
+            <div class="mb-4">
+                <label for="reg-name" class="block text-gray-700 font-semibold mb-2">Customer Name (Max 50 characters)</label>
+                <input type="text" id="reg-name" name="reg-name" required 
+                       maxlength="50" 
+                       placeholder="e.g., Jane Smith"
+                       class="input-field">
+            </div>
+            
+            <div class="mb-4">
+                <label for="reg-email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                <input type="email" id="reg-email" name="reg-email" required 
+                       placeholder="your.email@example.com"
+                       class="input-field">
+            </div>
+            
+            <div class="mb-4">
+                <label for="reg-password" class="block text-gray-700 font-semibold mb-2">Password (Max 30 characters)</label>
+                <input type="password" id="reg-password" name="reg-password" required 
+                       maxlength="30" 
+                       placeholder="Secure password"
+                       class="input-field">
+            </div>
+            
+            <div class="mb-4">
+                <label for="reg-contact" class="block text-gray-700 font-semibold mb-2">Contact Number (Exactly 10 digits)</label>
+                <!-- HTML5 pattern validation ensures only 10 digits are allowed -->
+                <input type="tel" id="reg-contact" name="reg-contact" required 
+                       maxlength="10" 
+                       pattern="[0-9]{10}" 
+                       placeholder="e.g., 1234567890" 
+                       class="input-field">
+            </div>
+            
+            <div class="mb-6">
+                <label for="reg-address" class="block text-gray-700 font-semibold mb-2">Address (Max 100 characters)</label>
+                <textarea id="reg-address" name="reg-address" required 
+                          maxlength="100" 
+                          placeholder="Street, City, Zip Code"
+                          rows="3"
+                          class="input-field resize-none"></textarea>
+            </div>
+            
+            <!-- This section is for displaying errors, left empty for now -->
+            <div id="reg-error" class="text-red-500 mb-4 font-medium hidden"></div>
+            
+            <button type="submit" name="register" class="btn-primary">
+                Register
+            </button>
+            
+            <button type="submit" id="login" name="login" class="btn-primary">
+                Login
+            </button>
+        </form>
+        
+        <p class="mt-6 text-center text-gray-600 text-sm">
+            Fields marked with an asterisk are required.
+        </p>
+    </div>
+
+    <script type="text/javascript" src="./registration.js"></script>
+    <script>
+        const form = document.getElementById('myForm');
+
+    form.addEventListener('submit', function(event) {
+    // Prevent default form submission behavior (page reload)
+    event.preventDefault();
+    var name=document.getElementById("reg-name").value;
+    var email=document.getElementById("reg-email").value;
+    var password=document.getElementById("reg-password").value;
+    var contact=document.getElementById("reg-contact").value;
+    var address=document.getElementById("reg-address").value;
+
+    if (!name || !email || !password || !address || !contact) {
+        errorElement.textContent = 'All fields are required for registration.';
+        return;
+    }
+
+    // Input validation (basic simulation)
+    if (name.length > 50) { errorElement.textContent = 'Name is too long.'; return; }
+    if (password.length > 30) { errorElement.textContent = 'Password is too long.'; return; }
+    if (contact.length !== 10 || !/^\d{10}$/.test(contact)) { errorElement.textContent = 'Contact number must be 10 digits.'; return; }
+    if (address.length > 100) { errorElement.textContent = 'Address is too long.'; return; }
+
+    if (name.length < 50) { 
+        if (password.length < 30) {
+            if (contact.length == 10)
+        {if (address.length < 100){
+const newUserId = 'CUST' + Math.floor(Math.random() * 100000);
+ localStorage.setItem("id",newUserId);
+    localStorage.setItem("name",name);
+    localStorage.setItem("email",email);
+    localStorage.setItem("password",password);
+    localStorage.setItem("contact",contact);
+    localStorage.setItem("address",address);
+
+     if(newUserId){
+        alert(`User id:${newUserId}`);
+    }
+    else{
+        alert("User not generated.")
+    }
+        }
+        else{alert("Address should be less than 100 characters.")}
+    }
+        else{alert("Incorrect contact")}
+        }
+        else{
+            alert("Password should be less than 30 characters");
+        }
+    }
+    else{
+        alert("name should be less than 50 characters.")
+    }
+
+    
+
+   
+
+   
+    console.log(localStorage);
+})
+
+document.getElementById("login").addEventListener('click',function(event){
+     window.location.href = "http://192.168.0.104:5500/login/login.html";
+})
+</script>
+</body>
+</html>

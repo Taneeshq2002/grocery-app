@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="form-card">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Customer Login</h2>
+        
+        <form id="login-form" action="" method="">
+            <div class="mb-4">
+                <label for="login-id" class="block text-gray-700 font-semibold mb-2">Email</label>
+                <input type="text" id="login-id" name="login-id" required 
+                       placeholder="..."
+                       class="input-field">
+            </div>
+            
+            <div class="mb-6">
+                <label for="login-password" class="block text-gray-700 font-semibold mb-2">Password</label>
+                <input type="password" id="login-password" name="login-password" required 
+                       placeholder="Your password"
+                       class="input-field">
+            </div>
+            
+            <!-- Error message area -->
+            <div id="login-error" class="text-red-500 mb-4 font-medium hidden text-center"></div>
+            
+            <button type="submit" name="login" class="btn-primary">
+                Login
+            </button>
+        </form>
+        
+        <p class="mt-6 text-center text-gray-600 text-sm">
+            <!-- Link to Registration Page (US_UI_001) -->
+            Don't have an account? <a href="http://192.168.0.104:5500/registration/registration.html" class="text-blue-500 hover:text-blue-700 font-semibold">Register here</a>
+        </p>
+    </div>
+    
+    <script>
+     
+      const form=document.getElementById('login-form');
+        form.addEventListener('submit',function(event){
+            event.preventDefault();
+             const id=localStorage.getItem('id');
+            const password=localStorage.getItem('password');
+
+            const id_input=document.getElementById("login-id").value;
+            const pass_input=document.getElementById("login-password").value;
+
+            console.log(id,password);
+            
+
+            if(id_input==id && pass_input==password){
+                window.location.href = "http://192.168.0.104:5500/home/home.html";
+
+            }else{
+                
+     window.location.href = "http://192.168.0.104:5500/login/login.html";
+            }
+
+        })
+    </script>
+</body>
+</html>
