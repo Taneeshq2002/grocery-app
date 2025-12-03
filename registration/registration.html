@@ -11,10 +11,7 @@
 <body>
     <div class="form-card">
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Customer Registration</h2>
-        
-        <!-- Registration Form (US_UI_001) -->
-        <!-- Note: The form action is set to '#' and the onsubmit handler is commented out, 
-             making this form static until you integrate JS logic. -->
+    
         <form id="myForm" action="" method="" >
             <div class="mb-4">
                 <label for="reg-name" class="block text-gray-700 font-semibold mb-2">Customer Name (Max 50 characters)</label>
@@ -65,14 +62,11 @@
                 Register
             </button>
             
-            <button type="submit" id="login" name="login" class="btn-primary">
+            
+        </form>
+        <button type="submit" id="login" name="login" class="btn-primary">
                 Login
             </button>
-        </form>
-        
-        <p class="mt-6 text-center text-gray-600 text-sm">
-            Fields marked with an asterisk are required.
-        </p>
     </div>
 
     <script type="text/javascript" src="./registration.js"></script>
@@ -104,12 +98,19 @@
             if (contact.length == 10)
         {if (address.length < 100){
 const newUserId = 'CUST' + Math.floor(Math.random() * 100000);
- localStorage.setItem("id",newUserId);
-    localStorage.setItem("name",name);
-    localStorage.setItem("email",email);
-    localStorage.setItem("password",password);
-    localStorage.setItem("contact",contact);
-    localStorage.setItem("address",address);
+
+//creating users list
+ let users = JSON.parse(localStorage.getItem('users')) || [];
+
+  const newUser ={id:newUserId,name:name,email:email,password:password,contact:contact,address:address}
+   users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+//  localStorage.setItem("id",newUserId);
+//     localStorage.setItem("name",name);
+//     localStorage.setItem("email",email);
+//     localStorage.setItem("password",password);
+//     localStorage.setItem("contact",contact);
+//     localStorage.setItem("address",address);
 
      if(newUserId){
         alert(`User id:${newUserId}`);
@@ -130,15 +131,12 @@ const newUserId = 'CUST' + Math.floor(Math.random() * 100000);
         alert("name should be less than 50 characters.")
     }
 
-    
 
-   
-
-   
     console.log(localStorage);
 })
 
 document.getElementById("login").addEventListener('click',function(event){
+    event.preventDefault();
      window.location.href = "http://192.168.0.104:5500/login/login.html";
 })
 </script>

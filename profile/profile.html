@@ -74,7 +74,7 @@
                 <!-- Password (Placeholder for security) -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 items-center gap-4">
                     <label class="detail-label sm:col-span-1">Password:</label>
-                    <div class="detail-value sm:col-span-2 italic text-gray-500">(Hidden for security)</div>
+                    <input type="text" class="detail-value sm:col-span-2 italic text-gray-500" id="profile-password">
                 </div>
 
             </div>
@@ -95,10 +95,10 @@
 <script>
     var userId=localStorage.getItem('id');
     var name=localStorage.getItem('name');
-    var email=localStorage.getItem("email")
-    var contact=localStorage.getItem("contact");
-    var password=localStorage.getItem("password")
-    var address=localStorage.getItem("address")
+    var email=localStorage.getItem('email')
+    var contact=localStorage.getItem('contact');
+    var password=localStorage.getItem('password')
+    var address=localStorage.getItem('address')
 
     document.getElementById("customer-id").value=userId
     document.getElementById("profile-name").value=name;
@@ -109,15 +109,17 @@
 
     var form=document.getElementById("update-form");
     form.addEventListener('submit',function(event){
-        event.preventDefault();
-    localStorage.setItem("id",userId);
-    localStorage.setItem("name",name);
-    localStorage.setItem("email",email);
-    localStorage.setItem("password",password);
-    localStorage.setItem("contact",contact);
-    localStorage.setItem("address",address);
+
+    localStorage.setItem("id",document.getElementById("customer-id").value);
+    localStorage.setItem("name",document.getElementById("profile-name").value);
+    localStorage.setItem("email",document.getElementById("profile-email").value);
+    localStorage.setItem("password",document.getElementById("profile-password").value);
+    localStorage.setItem("contact",document.getElementById("profile-contact").value);
+    localStorage.setItem("address",document.getElementById("profile-address").value);
 
     alert("Updated successfully!!");
+
+    event.preventDefault();
 
      window.location.href = "http://192.168.0.104:5500/profile/profile.html"
     
