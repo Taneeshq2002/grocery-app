@@ -1,0 +1,50 @@
+ :root { 
+            --primary: #4CAF50; 
+            --primary-dark: #388E3C; 
+            --accent: #FF9800; 
+            --background: #f0f4f8; 
+            --header-bg: #ffffff;
+            --button-update: #1976D2; /* Blue */
+            --button-save: #4CAF50; /* Green */
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--background); 
+        }
+        .header-nav a:hover {
+            color: var(--primary);
+        }
+        .profile-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .detail-label {
+            color: #6B7280; /* Gray-500 */
+        }
+        .detail-value {
+            color: #1F2937; /* Gray-800 */
+            font-weight: 600;
+        }
+        .btn-action {
+            padding: 0.75rem 1.5rem; 
+            border-radius: 8px; 
+            font-weight: 700; 
+            transition: background-color 0.2s; 
+            width: 100%;
+        }
+        .btn-update {
+            background-color: var(--button-update);
+            color: forestgreen;
+        }
+        .btn-update:hover {
+            background-color: #1565C0;
+        }
+       
+        /* Style for text inputs/textareas to simulate display/edit states */
+        .profile-input {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            border-radius: 6px;
+            width: 100%;
+        }

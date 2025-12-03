@@ -3,12 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home - Online Grocery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    this is home page.
+   <!-- Header and Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-900">Online Grocery Store</h1>
+            <nav class="header-nav space-x-6 text-gray-600 font-medium">
+                <a href="#" class="hover:text-green-600">Home</a>
+                <a href=" http://192.168.0.104:5500/profile/profile.html" class="hover:text-green-600">Profile (US_UI_004)</a> 
+                <a href="#" class="hover:text-green-600 relative">
+                    Cart 
+                    <!-- Static cart count placeholder -->
+                    <span class="absolute top-[-10px] right-[-15px] bg-red-500 text-white text-xs rounded-full px-2 py-0.5">3</span> 
+                </a>
+                <a href="http://192.168.0.104:5500/login/login.html" class="text-red-500 hover:text-red-700" id="logout-btn">Logout</a>
+            </nav>
+        </div>
+    </header>
 
-    <button type="submit" id="logout-btn">Logout</button>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- Static Welcome Header -->
+        <h2 class="text-4xl font-extrabold text-center text-gray-800 mb-10" id="user-header">
+            Hello, Jane Smith to Online Grocery Store
+        </h2>
+
+        <!-- Product Listing (US_UI_003) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- Product Card 1: Organic Apples -->
+            <div class="product-card bg-white p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                <div class="text-6xl text-center mb-4">🍎</div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Organic Apples</h3>
+                    <p class="text-2xl font-semibold text-green-600 mt-1 mb-3">$2.99</p>
+                    <p class="text-sm text-gray-500">per lb</p>
+                </div>
+                <button class="btn-add-to-cart p-3 rounded-lg font-semibold mt-4">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product Card 2: Whole Wheat Bread -->
+            <div class="product-card bg-white p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                <div class="text-6xl text-center mb-4">🍞</div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Whole Wheat Bread</h3>
+                    <p class="text-2xl font-semibold text-green-600 mt-1 mb-3">$3.49</p>
+                    <p class="text-sm text-gray-500">per loaf</p>
+                </div>
+                <button class="btn-add-to-cart p-3 rounded-lg font-semibold mt-4">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product Card 3: Fresh Milk -->
+            <div class="product-card bg-white p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                <div class="text-6xl text-center mb-4">🥛</div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Fresh Milk</h3>
+                    <p class="text-2xl font-semibold text-green-600 mt-1 mb-3">$4.10</p>
+                    <p class="text-sm text-gray-500">per gallon</p>
+                </div>
+                <button class="btn-add-to-cart p-3 rounded-lg font-semibold mt-4">
+                    Add to Cart
+                </button>
+            </div>
+            
+            <!-- Product Card 4: Free Range Eggs -->
+            <div class="product-card bg-white p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                <div class="text-6xl text-center mb-4">🥚</div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Free Range Eggs</h3>
+                    <p class="text-2xl font-semibold text-green-600 mt-1 mb-3">$5.50</p>
+                    <p class="text-sm text-gray-500">per dozen</p>
+                </div>
+                <button class="btn-add-to-cart p-3 rounded-lg font-semibold mt-4">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product Card 5: Chicken Breast -->
+            <div class="product-card bg-white p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                <div class="text-6xl text-center mb-4">🍗</div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Chicken Breast</h3>
+                    <p class="text-2xl font-semibold text-green-600 mt-1 mb-3">$12.99</p>
+                    <p class="text-sm text-gray-500">per lb</p>
+                </div>
+                <button class="btn-add-to-cart p-3 rounded-lg font-semibold mt-4">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product Card 6: Basmati Rice -->
+            <div class="product-card bg-white p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                <div class="text-6xl text-center mb-4">🍚</div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Basmati Rice</h3>
+                    <p class="text-2xl font-semibold text-green-600 mt-1 mb-3">$8.99</p>
+                    <p class="text-sm text-gray-500">per bag</p>
+                </div>
+                <button class="btn-add-to-cart p-3 rounded-lg font-semibold mt-4">
+                    Add to Cart
+                </button>
+            </div>
+            
+            <!-- Product Card 7: Spinach -->
+            <div class="product-card bg-white p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                <div class="text-6xl text-center mb-4">🥬</div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Spinach</h3>
+                    <p class="text-2xl font-semibold text-green-600 mt-1 mb-3">$1.50</p>
+                    <p class="text-sm text-gray-500">per bunch</p>
+                </div>
+                <button class="btn-add-to-cart p-3 rounded-lg font-semibold mt-4">
+                    Add to Cart
+                </button>
+            </div>
+            
+            <!-- Product Card 8: Oatmeal -->
+            <div class="product-card bg-white p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                <div class="text-6xl text-center mb-4">🥣</div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Oatmeal</h3>
+                    <p class="text-2xl font-semibold text-green-600 mt-1 mb-3">$3.25</p>
+                    <p class="text-sm text-gray-500">per box</p>
+                </div>
+                <button class="btn-add-to-cart p-3 rounded-lg font-semibold mt-4">
+                    Add to Cart
+                </button>
+            </div>
+
+        </div>
+    </main>
+
 </body>
 
 <script>
@@ -17,5 +150,9 @@
      window.location.href = "http://192.168.0.104:5500/login/login.html";
 
     })
+
+    var username=localStorage.getItem('name')
+
+    document.getElementById("user-header").innerText=`Hello, ${username} to Online Grocery Store`
 </script>
 </html>

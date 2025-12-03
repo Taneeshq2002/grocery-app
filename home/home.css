@@ -1,0 +1,29 @@
+ :root { 
+            --primary: #4CAF50; 
+            --primary-dark: #388E3C; 
+            --accent: #FF9800; 
+            --background: #f0f4f8; 
+            --header-bg: #ffffff;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--background); 
+        }
+        .product-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-add-to-cart {
+            background-color: var(--accent);
+            color: white;
+            transition: background-color 0.2s;
+        }
+        .btn-add-to-cart:hover {
+            background-color: #f57c00;
+        }
+        .header-nav a:hover {
+            color: var(--primary);
+        }
