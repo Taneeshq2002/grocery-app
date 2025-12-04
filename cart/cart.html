@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Online Grocery</title>
+    <title>Cart</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-   <!-- Header and Navigation -->
     <header class="bg-white shadow-md sticky top-0 z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-gray-900">Online Grocery Store</h1>
             <nav class="header-nav space-x-6 text-gray-600 font-medium">
                 <a href="#" class="hover:text-green-600">Home</a>
                 <a href=" http://192.168.0.104:5500/profile/profile.html" class="hover:text-green-600">Profile </a> 
-                <a href="http://192.168.0.104:5500/cart/cart.html" class="hover:text-green-600 relative">
+                <a href="#" class="hover:text-green-600 relative">
                     Cart 
                     <!-- Static cart count placeholder -->
                     <span class="absolute top-[-10px] right-[-15px] bg-red-500 text-white text-xs rounded-full px-2 py-0.5">3</span> 
@@ -24,12 +23,11 @@
             </nav>
         </div>
     </header>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+ <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
         <!-- Static Welcome Header -->
         <h2 class="text-4xl font-extrabold text-center text-gray-800 mb-10" id="user-header">
-            Hello, Jane Smith to Online Grocery Store
+            YoOUR ITEMS
         </h2>
 
         <!-- Product Listing (US_UI_003) -->
@@ -141,42 +139,64 @@
 
         </div>
     </main>
-
 </body>
 
 <script>
-    document.getElementById("logout-btn").addEventListener("click",function(){
-        localStorage.clear();
-     window.location.href = "http://192.168.0.104:5500/login/login.html";
+    const Products = [
+    { 
+        id: 101, 
+        name: "Organic Apples", 
+        price: 2.99, 
+    },
+    { 
+        id: 102, 
+        name: "Whole Wheat Bread", 
+        price: 3.49, 
+    },
+    { 
+        id: 103, 
+        name: "Fresh Milk", 
+        price: 4.10,  
+    },
+    { 
+        id: 104, 
+        name: "Free Range Eggs", 
+        price: 5.50,  
+    },
+    { 
+        id: 105, 
+        name: "Chicken Breast", 
+        price: 12.99, 
+    },
+    { 
+        id: 106, 
+        name: "Basmati Rice", 
+        price: 8.99, 
+    },
+    { 
+        id: 107, 
+        name: "Spinach", 
+        price: 1.50, 
+    },
+    { 
+        id: 108, 
+        name: "Oatmeal", 
+        price: 3.25, 
+    }
+];
 
-    })
-    const users=localStorage.getItem('users');
-    const foundUsers=JSON.parse(users);
-    var userId=sessionStorage.getItem('userId');
-    foundUsers.forEach(user=>{
-        if(user.id==userId){
-            currentUser=user;
-            console.log(currentUser);
+
+
+//  const users=localStorage.getItem('users');
+//     const foundUsers=JSON.parse(users);
+//     var userId=sessionStorage.getItem('userId');
+
+//      foundUsers.forEach(user=>{
+//         if(user.id==userId){
+//             currentUser=user;
+//             console.log(currentUser);
             
-        }
-    })
-    //const user=localStorage.getItem(`${currentUser.id}`)
-
-    document.getElementById("user-header").innerText=`Hello, ${currentUser.name} to Online Grocery Store`
-
-    const items=document.getElementsByTagName("button")
-    console.log(items[0]);
-
-   for(let i=0;i<items.length;i++){
-    items[i].addEventListener('click',function(event){
-        console.log(items[i].value);
-        currentUser.cart.push(items[i]);
-        console.log(currentUser.cart);
-        
-    })
-   }
-    
-    
-    
+//         }
+//     })
 </script>
 </html>

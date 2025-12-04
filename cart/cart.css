@@ -1,0 +1,35 @@
+:root { 
+            --primary: #4CAF50; 
+            --primary-dark: #388E3C; 
+            --accent: #FF9800; 
+            --background: #f0f4f8; 
+            --header-bg: #ffffff;
+            --delete-btn: #E53E3E; /* Red-600 */
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--background); 
+        }
+        .header-nav a:hover {
+            color: var(--primary);
+        }
+        .cart-item-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.1s;
+        }
+        .btn-delete {
+            background-color: var(--delete-btn);
+            transition: background-color 0.2s;
+        }
+        .btn-delete:hover {
+            background-color: #C53030;
+        }
+        .btn-checkout {
+            background-color: var(--primary);
+            transition: background-color 0.2s;
+        }
+        .btn-checkout:hover {
+            background-color: var(--primary-dark);
+        }

@@ -52,16 +52,21 @@
             const id_input=document.getElementById("login-id").value;
             const pass_input=document.getElementById("login-password").value;
 
-            console.log(id,password);
+            const users=localStorage.getItem('users');
+            const foundUsers=JSON.parse(users);
+            console.log(foundUsers[0].id);
             
-
-            if(id_input==id && pass_input==password){
-                window.location.href = "http://192.168.0.104:5500/home/home.html";
-
-            }else{
-                
-     window.location.href = "http://192.168.0.104:5500/login/login.html";
-            }
+            foundUsers.forEach(user=>{
+                if(user.id==id_input && user.password==pass_input){
+                    sessionStorage.setItem('userId',user.id);
+                    window.location.href = "http://192.168.0.104:5500/home/home.html";
+                    exit;
+                }
+                else{
+                    window.location.href = "http://192.168.0.104:5500/login/login.html";
+                }
+            })
+            
 
         })
     </script>

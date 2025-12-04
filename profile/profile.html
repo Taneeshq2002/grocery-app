@@ -93,36 +93,44 @@
 
 </body>
 <script>
-    var userId=localStorage.getItem('id');
-    var name=localStorage.getItem('name');
-    var email=localStorage.getItem('email')
-    var contact=localStorage.getItem('contact');
-    var password=localStorage.getItem('password')
-    var address=localStorage.getItem('address')
 
-    document.getElementById("customer-id").value=userId
-    document.getElementById("profile-name").value=name;
-    document.getElementById("profile-email").value=email;
-    document.getElementById("profile-contact").value=contact;
-    document.getElementById("profile-address").value=address;
-    document.getElementById("profile-password").value=password;
+    //get user from localstorage and comapre its id with user in session storage to get access to complete
+    //details of current user which are not available in session storage details.
+    const users=localStorage.getItem('users');
+    const foundUsers=JSON.parse(users);
+    var userId=sessionStorage.getItem('userId');
+    foundUsers.forEach(user=>{
+        if(user.id==userId){
+            currentUser=user;
+            console.log(currentUser);
+            
+        }
+    })
 
+    document.getElementById("customer-id").value=currentUser.id
+    document.getElementById("profile-name").value=currentUser.name;
+    document.getElementById("profile-email").value=currentUser.email;
+    document.getElementById("profile-contact").value=currentUser.contact;
+    document.getElementById("profile-address").value=currentUser.address;
+    document.getElementById("profile-password").value=currentUser.password;
+    
     var form=document.getElementById("update-form");
     form.addEventListener('submit',function(event){
+        event.preventDefault();
+        var newUserId=document.getElementById('customer-id').value;
+        var newUserName=document.getElementById('profile-name').value;
+        var newUserEmail=document.getElementById('profile-email').value;
+        var newUserPassword=document.getElementById('profile-password').value;
+        var newUserContact=document.getElementById('profile-contact').value;
+        var newUserAddress=document.getElementById('profile-address').value;
 
-    localStorage.setItem("id",document.getElementById("customer-id").value);
-    localStorage.setItem("name",document.getElementById("profile-name").value);
-    localStorage.setItem("email",document.getElementById("profile-email").value);
-    localStorage.setItem("password",document.getElementById("profile-password").value);
-    localStorage.setItem("contact",document.getElementById("profile-contact").value);
-    localStorage.setItem("address",document.getElementById("profile-address").value);
-
-    alert("Updated successfully!!");
-
-    event.preventDefault();
-
-     window.location.href = "http://192.168.0.104:5500/profile/profile.html"
-    
+        const updatedUser={id:newUserId,name:newUserName,email:newUserEmail,password:newUserPassword,contact:newUserContact,address:newUserAddress,cart:currentUser.cart}
+        foundUsers.push(updatedUser);
+        localStorage.setItem('users',JSON.stringify(foundUsers));
+        console.log(localStorage);
+        alert("Updated successfully!!");
+        
     })
+    
 </script>
 </html>
